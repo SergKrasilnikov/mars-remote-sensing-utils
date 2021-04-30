@@ -1,4 +1,4 @@
-#! /Users/ivan/.local/share/virtualenvs/mars-remote-sensing-utils-danB6rx9/bin/python
+#!python
 
 import pathlib
 import psycopg2
@@ -6,18 +6,18 @@ import numpy as np
 import pandas as pd
 from tools import sql
 
-data_root = pathlib.Path('/Users/ivan/Projects/Mars/Data/Raw/')
+data_root = pathlib.Path('/Users/ivan/Projects/Data/Mars/')
 
 connection = {
     'host': 'localhost',
     'port': 5432,
     'database': 'mars_remote_sensing',
     'user': 'markwatney',
-    'password': 'LcKQ4JMr7H3j8zkMT4KyeebzQF2WZ.cWJbw!Nh!J',
+    'password': 'no one knows :) secret :)',
 }
 
-quadrants = data_root / 'quadrants.csv'
-nomenclature = data_root / 'nomenclature.csv'
+quadrants = data_root / 'Vectors' / 'Quadrants' / 'quadrants.csv'
+nomenclature = data_root / 'Vectors' / 'Nomenclature' / 'nomenclature_exported.csv'
 
 qd = pd.read_csv(quadrants)
 nm = pd.read_csv(nomenclature)

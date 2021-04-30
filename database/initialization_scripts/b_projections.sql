@@ -1,6 +1,7 @@
--- Add Mars projections to spatial_ref_sys table.
+-- Create all the tables.
 
 \c mars_remote_sensing markwatney;
+
 
 -- Mars 2000 (Geographic)
 INSERT INTO postgis.spatial_ref_sys (srid, auth_name, auth_srid, proj4text, srtext)
@@ -113,7 +114,7 @@ VALUES (949972, 'IAU2000', 49972,
 INSERT INTO spatial_ref_sys (srid, auth_name, auth_srid, proj4text, srtext)
 VALUES (949976, 'IAU2000', 49976,
         '',
-        'PROJCS["Mars_Albers_AUTO",' ||
+        'PROJCS["Mars_Albers",' ||
         'GEOGCS["Mars 2000",DATUM["D_Mars_2000",SPHEROID["Mars_2000_IAU_IAG",3396190.0,169.89444722361179]],' ||
         'PRIMEM["Greenwich",0],UNIT["Decimal_Degree",0.0174532925199433]],PROJECTION["Albers"],' ||
         'PARAMETER["False_Easting",0],PARAMETER["False_Northing",0],PARAMETER["Central_Meridian",0.0],' ||

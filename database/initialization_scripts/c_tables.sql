@@ -3,9 +3,9 @@
 \c mars_remote_sensing markwatney;
 
 -- Create the table for MARSIS orbit footprints
-CREATE TABLE marsis_footprints
+CREATE TABLE vectors.marsis_footprints
 (
-    orbit integer                                    NOT NULL PRIMARY KEY,
+    orbit integer PRIMARY KEY,
     epoch character varying(23)                      NOT NULL,
     sza   double precision                           NOT NULL,
     qi    character varying(2)                       NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE marsis_footprints
 );
 
 -- Create the table for SHARAD orbit footprints
-CREATE TABLE sharad_footprints
+CREATE TABLE vectors.sharad_footprints
 (
     orbit       integer                                    NOT NULL,
     observation integer                                    NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE sharad_footprints
 );
 
 -- Create table for quadrants
-CREATE TABLE quadrants
+CREATE TABLE vectors.quadrants
 (
     quad_code character varying(5),
     quad_name text,
@@ -34,7 +34,7 @@ CREATE TABLE quadrants
 );
 
 -- Create table for nomenclature from planetarynames.wr.usgs.gov
-CREATE TABLE nomenclature
+CREATE TABLE vectors.nomenclature
 (
     name       text,
     clean_name text,
@@ -57,7 +57,4 @@ CREATE TABLE nomenclature
     url        text
 );
 
-GRANT SELECT ON marsis_footprints TO explorer;
-GRANT SELECT ON sharad_footprints TO explorer;
-GRANT SELECT ON quadrants TO explorer;
-GRANT SELECT ON nomenclature TO explorer;
+GRANT SELECT ON ALL TABLES IN SCHEMA vectors TO explorer;
